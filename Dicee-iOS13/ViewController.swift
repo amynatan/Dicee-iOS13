@@ -17,27 +17,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
     
-    var leftDiceNumber = 0
-    var rightDiceNumber = 5
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
 
+  
     //ABAction triggers the code inside the curly braces
     //IBAction - interaction with UI leads to action in code
+    
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        diceImageView1.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")] [leftDiceNumber]
         
-        leftDiceNumber = leftDiceNumber + 1
+        //turns the array into a constant that we can call by name so we don'r have to type the sabe arrat 2x
+        let diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
+            
+        //these lines select a random number from diceArray and alter the imageview to the corresponding position
+        diceImageView1.image = diceArray [Int.random(in:0...5)]
+        diceImageView2.image = diceArray [Int.random(in:0...5)]
+        //                     diceArray.randomElement()    funciona do mesmo jeito
         
+
         
-        diceImageView2.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")] [rightDiceNumber]
-        
-        rightDiceNumber = rightDiceNumber - 1
-        
+                
     }
     
 }
