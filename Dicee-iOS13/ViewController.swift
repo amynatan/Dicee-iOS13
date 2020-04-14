@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     //add all elements to the view controler before viewDidLoad
     //hold ctrl and drag the element to the code
     //an IBOutlet allows me to reference a UI Element
+    //IBOutlet - changes the UI through code
     
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
@@ -28,6 +29,14 @@ class ViewController: UIViewController {
         //Image Literal (UIImage) alows us to define what the actual displayed image will be
     }
 
-
+    //ABAction triggers the code inside the curly braces
+    //IBAction - interaction with UI leads to action in code
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        print("Button got tapped")
+        
+        diceImageView1.image = #imageLiteral(resourceName: "DiceFour")
+        diceImageView2.image = #imageLiteral(resourceName: "DiceFour")
+    }
+    
 }
 
